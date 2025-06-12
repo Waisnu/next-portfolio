@@ -1,11 +1,31 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { splitText } from "@/lib/utils"
+import { SketchArrow, SketchCircle, SketchStar, SketchSquiggle, SketchHeart, SketchSparkles } from "@/components/ui/animated-doodles"
 
 export function Hero() {
     return (
-        <section /*ref={heroRef}*/ className="min-h-screen flex items-center justify-center px-6 relative">
-            <div className="max-w-6xl mx-auto w-full text-center">
+        <section /*ref={heroRef}*/ className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+            {/* Animated Doodles scattered around */}
+            <SketchArrow className="absolute top-20 left-8 opacity-40" />
+            <SketchCircle className="absolute top-32 right-12 opacity-30" />
+            <SketchStar className="absolute bottom-40 left-16 opacity-50" />
+            <SketchSquiggle className="absolute top-1/3 left-1/4 opacity-25" />
+            <SketchHeart className="absolute bottom-32 right-20 opacity-35" />
+            <SketchSparkles className="absolute top-16 right-1/3 opacity-45" />
+            
+            {/* Additional scattered doodles */}
+            <div className="absolute top-1/4 right-8 opacity-20">
+                <span className="text-4xl animate-pulse">✨</span>
+            </div>
+            <div className="absolute bottom-20 left-8 opacity-30">
+                <span className="text-3xl animate-pulse" style={{ animationDelay: '1s' }}>✨</span>
+            </div>
+            <div className="absolute top-40 left-1/3 opacity-25">
+                <span className="text-2xl animate-pulse" style={{ animationDelay: '2s' }}>✨</span>
+            </div>
+
+            <div className="max-w-6xl mx-auto w-full text-center relative z-10">
                 {/* Main heading with premium typography */}
                 <h1 className="font-clashgrotesk text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.2] mb-12">
                     <div className="hero-line-1 mb-6">

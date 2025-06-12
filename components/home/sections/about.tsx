@@ -1,13 +1,34 @@
 import Image from "next/image"
+import { SketchArrow, SketchHeart, SketchStar, SketchSparkles } from "@/components/ui/animated-doodles"
 
 export function About() {
     return (
-        <section id="about" className="py-32 px-6 animate-on-scroll">
-            <div className="max-w-4xl mx-auto text-center">
+        <section id="about" className="py-32 px-6 animate-on-scroll relative">
+            {/* Floating Doodles */}
+            <SketchHeart className="absolute top-16 left-12 opacity-40" />
+            <SketchStar className="absolute top-20 right-16 opacity-35" />
+            <SketchSparkles className="absolute bottom-20 left-20 opacity-45" />
+            <SketchArrow className="absolute bottom-16 right-12 opacity-30" />
+
+            <div className="max-w-4xl mx-auto text-center relative z-10">
                 <h2 className="animate-item font-satoshi text-4xl md:text-6xl font-light text-white mb-12 opacity-0">So Who Am I ?</h2>
 
                 {/* Profile Picture */}
-                <div className="animate-item mb-12 opacity-0">
+                <div className="animate-item mb-12 opacity-0 relative">
+                    {/* Additional sparkles around profile */}
+                    <div className="absolute -top-8 -left-8 opacity-30">
+                        <span className="text-2xl animate-pulse">✨</span>
+                    </div>
+                    <div className="absolute -top-4 -right-12 opacity-40">
+                        <span className="text-xl animate-pulse" style={{ animationDelay: '1s' }}>✨</span>
+                    </div>
+                    <div className="absolute -bottom-6 -left-10 opacity-35">
+                        <span className="text-lg animate-pulse" style={{ animationDelay: '2s' }}>✨</span>
+                    </div>
+                    <div className="absolute -bottom-8 -right-8 opacity-30">
+                        <span className="text-xl animate-pulse" style={{ animationDelay: '0.5s' }}>✨</span>
+                    </div>
+
                     <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
                         {/* Wavy circle border */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/30 to-purple-500/30 animate-pulse"></div>

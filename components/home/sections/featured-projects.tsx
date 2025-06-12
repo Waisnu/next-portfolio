@@ -1,12 +1,19 @@
 import Link from "next/link"
 import { ArrowRight, Github } from "lucide-react"
+import { SketchArrow, SketchCircle, SketchSquiggle, SketchSparkles } from "@/components/ui/animated-doodles"
 
 export function FeaturedProjects() {
     return (
-        <section className="py-32 px-6 animate-on-scroll">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-32 px-6 animate-on-scroll relative">
+            {/* Floating Doodles */}
+            <SketchCircle className="absolute top-8 left-8 z-0 opacity-40" />
+            <SketchSquiggle className="absolute top-16 right-12 z-0 opacity-30" />
+            <SketchSparkles className="absolute bottom-20 left-16 z-0 opacity-50" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
                 {/* Clean Header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-20 relative">
+                    <SketchArrow className="absolute -top-4 right-1/4 opacity-60" />
                     <h2 className="animate-item font-gambarino text-4xl md:text-6xl font-light text-white mb-6 opacity-0">
                         Featured <span className="text-gray-400">Projects</span>
                     </h2>
@@ -55,21 +62,15 @@ export function FeaturedProjects() {
                     ].map((project, index) => (
                         <div key={index} className="animate-item opacity-0">
                             <div className="group relative">
-                                {/* Decorative Stars */}
+                                {/* Decorative Sparkles */}
                                 <div className="absolute -top-2 -left-2 z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-yellow-400">
-                                        <path d="M12 2L13.09 8.26L19 7L14.74 11.74L21 14L13.09 15.74L12 22L10.91 15.74L3 14L9.26 11.74L5 7L10.91 8.26L12 2Z" fill="currentColor" />
-                                    </svg>
+                                    <span className="text-2xl animate-pulse">✨</span>
                                 </div>
                                 <div className="absolute -top-1 -right-3 z-10 opacity-50 group-hover:opacity-80 transition-opacity duration-300">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-yellow-300">
-                                        <path d="M12 2L13.09 8.26L19 7L14.74 11.74L21 14L13.09 15.74L12 22L10.91 15.74L3 14L9.26 11.74L5 7L10.91 8.26L12 2Z" fill="currentColor" />
-                                    </svg>
+                                    <span className="text-lg animate-pulse" style={{ animationDelay: '0.5s' }}>✨</span>
                                 </div>
                                 <div className="absolute -bottom-1 -left-4 z-10 opacity-60 group-hover:opacity-90 transition-opacity duration-300">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-yellow-500">
-                                        <path d="M12 2L13.09 8.26L19 7L14.74 11.74L21 14L13.09 15.74L12 22L10.91 15.74L3 14L9.26 11.74L5 7L10.91 8.26L12 2Z" fill="currentColor" />
-                                    </svg>
+                                    <span className="text-xl animate-pulse" style={{ animationDelay: '1s' }}>✨</span>
                                 </div>
 
                                 {/* Main Project Card */}
@@ -78,11 +79,9 @@ export function FeaturedProjects() {
                                     <div className="relative h-48 bg-gray-800/50 flex items-center justify-center">
                                         <div className="text-gray-500 text-lg font-medium">{project.title}</div>
 
-                                        {/* More Decorative Stars in Corner */}
+                                        {/* More Decorative Sparkles in Corner */}
                                         <div className="absolute top-3 right-3 opacity-40 group-hover:opacity-70 transition-opacity duration-300">
-                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="text-yellow-400">
-                                                <path d="M12 2L13.09 8.26L19 7L14.74 11.74L21 14L13.09 15.74L12 22L10.91 15.74L3 14L9.26 11.74L5 7L10.91 8.26L12 2Z" fill="currentColor" />
-                                            </svg>
+                                            <span className="text-sm">✨</span>
                                         </div>
 
                                         {/* Tech Icons */}
