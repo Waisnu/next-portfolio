@@ -16,11 +16,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Premium Fonts from Fontshare */}
-        <link href="https://api.fontshare.com/v2/css?f[]=gambarino@300,400,500,600,700&f[]=cabinet-grotesk@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@300,400,500,600,700&f[]=stardom@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=gambetta@300,400,500,600,700&f[]=excon@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=claude@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
         {/* Devicon for tech stack icons */}
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
-      <body className="font-cabinet">{children}</body>
+      <body className="font-excon">{children}</body>
     </html>
   )
 }

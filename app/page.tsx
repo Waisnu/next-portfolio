@@ -498,32 +498,28 @@ export default function Portfolio() {
       <section ref={heroRef} className="min-h-screen flex items-center justify-center px-6 relative">
         <div className="max-w-6xl mx-auto w-full text-center">
           {/* Main heading with premium typography */}
-          <h1 className="font-gambarino text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] mb-12">
-            <div className="hero-line-1 mb-4">
+          <h1 className="font-clashgrotesk text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.2] mb-12">
+            <div className="hero-line-1 mb-6">
               <span className="text-gray-500 font-light">{splitText("The")}</span>{" "}
-              <span className="text-white font-bold">{splitText("Software")}</span>
+              <span className="text-white font-bold">{splitText("Software")}</span>{" "}
+              <span className="text-white font-bold">{splitText("Developer")}</span>
             </div>
-            <div className="hero-line-2 mb-4">
-              <span className="text-white font-medium">{splitText("Engineer")}</span>{" "}
-              <span className="text-gray-400 font-light">{splitText("That")}</span>
-            </div>
-            <div className="hero-line-3">
-              <span className="text-white font-medium">{splitText("Gets ")}</span>
-              <span className="text-white font-bold">{splitText("Shit Done")}</span>
+            <div className="hero-line-2">
+              <span className="text-gray-400 font-light">{splitText("That")}</span>{" "}
+              <span className="text-gray-400 font-light">{splitText("gets")}</span>{" "}
+              <span className="font-stardom text-white italic">{splitText("shit done")}</span>
             </div>
           </h1>
 
           <div className="hero-subtitle opacity-0 mb-8">
-            <p className="font-cabinet text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">
-              Software Engineer specializing in <span className="text-white font-medium">web development</span> and{" "}
-              <span className="text-white font-medium">backend architecture</span>
+            <p className="font-clashgrotesk text-2xl md:text-3xl text-gray-300 font-light max-w-3xl mx-auto">
+              Hello friend, It's <span className="text-red-400 font-clashgrotesk font-bold">Vince</span>👋
             </p>
           </div>
 
           <div className="hero-description opacity-0 mb-16">
-            <p className="font-cabinet text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-              3+ years building robust, high-performance web applications. From frontend interfaces to backend systems,
-              I create the solutions that power modern applications.
+            <p className="font-cabinet text-gray-500 text-lg max-w-2xl mx-auto leading-[1.6]">
+              I specialize in backend development creating scalable solutions that power modern applications and help businesses grow.
             </p>
           </div>
 
@@ -548,7 +544,7 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="py-32 px-6 animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="animate-item font-gambarino text-4xl md:text-6xl font-light text-white mb-12 opacity-0">About Me</h2>
+          <h2 className="animate-item font-satoshi text-4xl md:text-6xl font-light text-white mb-12 opacity-0">So Who Am I ?</h2>
 
           {/* Profile Picture */}
           <div className="animate-item mb-12 opacity-0">
@@ -571,20 +567,13 @@ export default function Portfolio() {
           </div>
 
           <div className="space-y-8">
+            <p className="animate-item font-cabinet text-lg text-gray-400 leading-relaxed opacity-0 max-w-3xl mx-auto">
+            I developed a passion for coding at a young age and have consistently honed my skills to deliver exceptional software solutions. By combining my expertise with a collaborative mindset, I am driven to turn your vision into reality.
+            </p>
             <p className="animate-item font-cabinet text-xl md:text-2xl text-gray-300 leading-relaxed opacity-0 font-light">
-              I build robust and efficient web applications.
+            Let's work together to create something extraordinary!
             </p>
-            <p className="animate-item font-cabinet text-lg text-gray-400 leading-relaxed opacity-0 max-w-3xl mx-auto">
-              My passion lies in solving complex problems through technology. I am committed to continuous learning and
-              applying modern software engineering practices to deliver high-quality, impactful solutions. I thrive in
-              collaborative environments and am driven by the opportunity to contribute to meaningful projects and help
-              organizations achieve their technical goals.
-            </p>
-            <p className="animate-item font-cabinet text-lg text-gray-400 leading-relaxed opacity-0 max-w-3xl mx-auto">
-              I specialize in translating business requirements into clean, scalable code, with a focus on backend
-              architecture and system design. With experience across the complete software development lifecycle, I've
-              shipped over 15 projects demonstrating a wide range of technical skills.
-            </p>
+          
           </div>
         </div>
       </section>
@@ -655,8 +644,8 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto">
           {/* Main Title with Morphing Animation */}
           <div className="text-center mb-20">
-            <h2 className="animate-item text-4xl md:text-6xl font-light text-white mb-4 opacity-0">
-              Education <span className="text-gray-500 font-thin">& </span>
+            <h2 className="animate-item font-gambetta text-4xl md:text-6xl font-semibold text-white mb-4 opacity-0">
+              Education <span className="text-gray-500 font-light">& </span>
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Experience</span>
             </h2>
             <div className="animate-item opacity-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
@@ -673,7 +662,7 @@ export default function Portfolio() {
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-white education-title">Education</h3>
+                  <h3 className="font-gambetta text-2xl font-semibold text-white education-title">Education</h3>
                 </div>
 
                 <div className="space-y-6">
@@ -720,7 +709,7 @@ export default function Portfolio() {
                   <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center experience-icon">
                     <Briefcase className="w-4 h-4 text-white" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-white experience-title">Experience</h3>
+                  <h3 className="font-gambetta text-2xl font-semibold text-white experience-title">Experience</h3>
                 </div>
 
                 <div className="space-y-6">

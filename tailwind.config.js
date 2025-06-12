@@ -70,9 +70,14 @@ module.exports = {
         },
       },
       fontFamily: {
-        gambarino: ["Gambarino", "serif"],
+        gambetta: ["Gambetta", "serif"],
         cabinet: ["Cabinet Grotesk", "sans-serif"],
-        sans: ["Cabinet Grotesk", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        claude: ["Claude", "sans-serif"],
+        clashgrotesk: ["Clash Grotesk", "sans-serif"],
+        stardom:["Stardom", "sans-serif"],
+        excon: ["Excon", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
+        sans: ["Clash Grotesk","Stardom", "Cabinet Grotesk", "-apple-system","Satoshi" ,"BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
       animation: {
         grain: "grain 8s steps(10) infinite",
