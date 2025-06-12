@@ -2,11 +2,19 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import * as anime from "animejs"
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, Clock, Target, Linkedin } from "lucide-react"
+import anime from "animejs"
+import { ArrowLeft, ExternalLink, Github, Calendar, Users, Clock, Target, Linkedin, ChevronRight } from "lucide-react"
 
 export default function ProjectsPage() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({})
+
+  const nextImage = (projectId: number, totalImages: number) => {
+    setCurrentImageIndex(prev => ({
+      ...prev,
+      [projectId]: ((prev[projectId] || 0) + 1) % totalImages
+    }))
+  }
 
   useEffect(() => {
     // Page load animations
@@ -75,7 +83,12 @@ export default function ProjectsPage() {
       team: "Solo project",
       featured: true,
       gradient: "from-blue-500/30 to-purple-500/30",
-      image: "JumpStart E-Commerce",
+      images: [
+        "/placeholder.svg?height=400&width=600&text=JumpStart+Home+Page",
+        "/placeholder.svg?height=400&width=600&text=JumpStart+Products+Page",
+        "/placeholder.svg?height=400&width=600&text=JumpStart+Cart+Page",
+        "/placeholder.svg?height=400&width=600&text=JumpStart+Checkout+Page",
+      ],
     },
     {
       id: 2,
@@ -110,7 +123,12 @@ export default function ProjectsPage() {
       team: "Solo project",
       featured: true,
       gradient: "from-green-500/30 to-yellow-500/30",
-      image: "Infoplay Platform",
+      images: [
+        "/placeholder.svg?height=400&width=600&text=Infoplay+Home+Page",
+        "/placeholder.svg?height=400&width=600&text=Infoplay+Games+Grid",
+        "/placeholder.svg?height=400&width=600&text=Infoplay+Game+Details",
+        "/placeholder.svg?height=400&width=600&text=Infoplay+Search+Results",
+      ],
     },
     {
       id: 3,
@@ -145,7 +163,11 @@ export default function ProjectsPage() {
       team: "Solo project",
       featured: true,
       gradient: "from-yellow-500/30 to-red-500/30",
-      image: "Pyano Virtual Piano",
+      images: [
+        "/placeholder.svg?height=400&width=600&text=Pyano+Piano+Interface",
+        "/placeholder.svg?height=400&width=600&text=Pyano+Sound+Controls",
+        "/placeholder.svg?height=400&width=600&text=Pyano+Settings+Page",
+      ],
     },
     {
       id: 4,
@@ -180,7 +202,12 @@ export default function ProjectsPage() {
       team: "Solo project",
       featured: false,
       gradient: "from-purple-500/30 to-pink-500/30",
-      image: "Cars Portal Platform",
+      images: [
+        "/placeholder.svg?height=400&width=600&text=Cars+Portal+Home",
+        "/placeholder.svg?height=400&width=600&text=Cars+Portal+Listings",
+        "/placeholder.svg?height=400&width=600&text=Cars+Portal+Bidding",
+        "/placeholder.svg?height=400&width=600&text=Cars+Portal+Profile",
+      ],
     },
     {
       id: 5,
@@ -214,9 +241,15 @@ export default function ProjectsPage() {
       team: "Solo project",
       featured: false,
       gradient: "from-blue-500/30 to-green-500/30",
-      image: "Chirper Social Platform",
+      images: [
+        "/placeholder.svg?height=400&width=600&text=Chirper+Timeline",
+        "/placeholder.svg?height=400&width=600&text=Chirper+Profile+Page",
+        "/placeholder.svg?height=400&width=600&text=Chirper+Compose+Tweet",
+      ],
     },
-  ]
+      ]
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-rose-950 relative overflow-hidden">
@@ -268,7 +301,10 @@ export default function ProjectsPage() {
 
       {/* Simple Back Button - No Navbar */}
       <div className="fixed top-0 left-0 z-50 p-6">
-        <Link href="/" className="flex items-center space-x-3 text-white hover:text-gray-300 transition-colors group">
+        <Link 
+          href="/" 
+          className="flex items-center space-x-3 text-white hover:text-gray-300 transition-colors group focus:outline-none focus:ring-0 focus:ring-transparent"
+        >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
           <span className="font-medium">Back to Home</span>
         </Link>
@@ -383,53 +419,77 @@ export default function ProjectsPage() {
                     </div>
                   )}
 
-                  <div className="grid lg:grid-cols-5 gap-8 p-8">
-                    {/* Project Image */}
+                  <div className="grid lg:grid-cols-3 gap-8 p-8">
+                    {/* Project Image - Made Bigger */}
                     <div className="lg:col-span-2">
-                      <div className="relative h-64 lg:h-80 rounded-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+                      <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
                         <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`}></div>
-                        <img
-                          src={`/placeholder.svg?height=400&width=600&text=${encodeURIComponent(project.image)}`}
-                          alt={project.title}
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                        />
+                        
+                        {/* Multiple Images with Smooth Transitions */}
+                        {project.images.map((image, imageIndex) => (
+                          <img
+                            key={imageIndex}
+                            src={image}
+                            alt={`${project.title} - Page ${imageIndex + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out ${
+                              imageIndex === (currentImageIndex[project.id] || 0) 
+                                ? 'opacity-90 scale-100' 
+                                : 'opacity-0 scale-105'
+                            }`}
+                          />
+                        ))}
+                        
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
 
                         {/* Project Year Badge */}
                         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-xl rounded-full px-3 py-1">
                           <span className="text-white text-sm font-medium">{project.year}</span>
                         </div>
-                      </div>
 
-                      {/* Quick Metrics Grid */}
-                      <div className="mt-6 grid grid-cols-2 gap-4">
-                        {project.metrics.slice(0, 4).map((metric, metricIndex) => {
-                          const IconComponent = metric.icon
-                          return (
-                            <div
-                              key={metricIndex}
-                              className="bg-gray-800/30 backdrop-blur-xl rounded-xl p-4 border border-gray-700/30 hover:border-[#ee9ca7]/30 transition-colors duration-300"
-                            >
-                              <div className="flex items-center space-x-3">
-                                <IconComponent className="w-5 h-5 text-[#ee9ca7]" />
-                                <div>
-                                  <div className="text-lg font-bold text-white">{metric.value}</div>
-                                  <div className="text-gray-400 text-xs">{metric.label}</div>
-                                </div>
-                              </div>
-                            </div>
-                          )
-                        })}
+                        {/* Next Button */}
+                        {project.images.length > 1 && (
+                          <button
+                            onClick={() => nextImage(project.id, project.images.length)}
+                            className="absolute top-4 right-4 bg-black/60 hover:bg-black/80 backdrop-blur-xl rounded-full p-2 transition-all duration-300 hover:scale-110 group/btn"
+                          >
+                            <ChevronRight className="w-4 h-4 text-white group-hover/btn:translate-x-0.5 transition-transform duration-300" />
+                          </button>
+                        )}
+
+                        {/* Image Counter Indicator */}
+                        {project.images.length > 1 && (
+                          <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-xl rounded-full px-3 py-1">
+                            <span className="text-white text-xs font-medium">
+                              {(currentImageIndex[project.id] || 0) + 1}/{project.images.length}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Dot Indicators */}
+                        {project.images.length > 1 && (
+                          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            {project.images.map((_, dotIndex) => (
+                              <div
+                                key={dotIndex}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                  dotIndex === (currentImageIndex[project.id] || 0)
+                                    ? 'bg-white'
+                                    : 'bg-white/40'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
 
                     {/* Project Info */}
-                    <div className="lg:col-span-3">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <h2 className="text-3xl md:text-4xl font-semibold text-white group-hover:text-[#ee9ca7] transition-colors duration-300">
+                    <div className="lg:col-span-1">
+                      <div className="mb-4">
+                        <h2 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-[#ee9ca7] transition-colors duration-300 mb-2">
                           {project.title}
                         </h2>
-                        <div className="flex items-center space-x-2 text-gray-500 text-sm">
+                        <div className="flex items-center space-x-2 text-gray-500 text-sm mb-4">
                           <Calendar className="w-4 h-4" />
                           <span>{project.duration}</span>
                           <span>•</span>
@@ -438,17 +498,17 @@ export default function ProjectsPage() {
                         </div>
                       </div>
 
-                      <p className="text-lg text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-                      <p className="text-gray-400 mb-8 leading-relaxed">{project.longDescription}</p>
+                      <p className="text-gray-400 mb-4 leading-relaxed text-sm">{project.description}</p>
+                      <p className="text-gray-400 mb-6 leading-relaxed text-xs">{project.longDescription}</p>
 
                       {/* Tech Stack */}
-                      <div className="mb-8">
-                        <h3 className="text-lg font-semibold text-white mb-4">Technology Stack</h3>
-                        <div className="flex flex-wrap gap-3">
+                      <div className="mb-6">
+                        <h3 className="text-sm font-semibold text-white mb-3">Tech Stack</h3>
+                        <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="bg-gray-700/40 backdrop-blur-xl text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-600/30 hover:border-[#ee9ca7]/50 hover:bg-[#ee9ca7]/10 transition-all duration-300"
+                              className="bg-gray-700/40 backdrop-blur-xl text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-600/30"
                             >
                               {tech}
                             </span>
@@ -457,31 +517,31 @@ export default function ProjectsPage() {
                       </div>
 
                       {/* Challenges & Solutions */}
-                      <div className="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                          <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      <div className="mb-6">
+                        <div className="mb-4">
+                          <h3 className="text-sm font-semibold text-white mb-2 flex items-center space-x-2">
+                            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
                             <span>Key Challenges</span>
                           </h3>
-                          <ul className="space-y-3">
-                            {project.challenges.map((challenge, challengeIndex) => (
-                              <li key={challengeIndex} className="flex items-start space-x-3">
-                                <div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-400 text-sm leading-relaxed">{challenge}</span>
+                          <ul className="space-y-2">
+                            {project.challenges.slice(0, 2).map((challenge, challengeIndex) => (
+                              <li key={challengeIndex} className="flex items-start space-x-2">
+                                <div className="w-1 h-1 bg-red-400 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span className="text-gray-400 text-xs leading-relaxed">{challenge}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span>Solutions Implemented</span>
+                          <h3 className="text-sm font-semibold text-white mb-2 flex items-center space-x-2">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span>Solutions</span>
                           </h3>
-                          <ul className="space-y-3">
-                            {project.solutions.map((solution, solutionIndex) => (
-                              <li key={solutionIndex} className="flex items-start space-x-3">
-                                <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-400 text-sm leading-relaxed">{solution}</span>
+                          <ul className="space-y-2">
+                            {project.solutions.slice(0, 2).map((solution, solutionIndex) => (
+                              <li key={solutionIndex} className="flex items-start space-x-2">
+                                <div className="w-1 h-1 bg-green-400 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span className="text-gray-400 text-xs leading-relaxed">{solution}</span>
                               </li>
                             ))}
                           </ul>

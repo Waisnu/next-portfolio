@@ -14,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        {/* Premium Fonts from Fontshare */}
+        <link href="https://api.fontshare.com/v2/css?f[]=gambarino@300,400,500,600,700&f[]=cabinet-grotesk@100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        {/* Devicon for tech stack icons */}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
+      <body className="font-cabinet">{children}</body>
     </html>
   )
 }

@@ -70,7 +70,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        gambarino: ["Gambarino", "serif"],
+        cabinet: ["Cabinet Grotesk", "sans-serif"],
+        sans: ["Cabinet Grotesk", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
       animation: {
         grain: "grain 8s steps(10) infinite",
